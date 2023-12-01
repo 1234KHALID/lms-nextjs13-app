@@ -27,7 +27,6 @@ export async function PATCH(
 
     return NextResponse.json(course);
   } catch (error) {
-    console.log("[course]", error);
     return new NextResponse("Internal error", { status: 500 });
   }
 }
