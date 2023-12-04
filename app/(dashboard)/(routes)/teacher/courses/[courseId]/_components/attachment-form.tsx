@@ -2,13 +2,11 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { Pencil, PlusCircle, ImageIcon, File, Loader2, X } from "lucide-react";
+import { PlusCircle, File, Loader2, X } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Attachment, Course } from "@prisma/client";
-import Image from "next/image";
-
 import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
 
@@ -55,6 +53,8 @@ export const AttachmentForm = ({
       setDeletingId(null);
     }
   };
+
+  console.log(initialData.attachments, "initialData.attachments")
 
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4">
