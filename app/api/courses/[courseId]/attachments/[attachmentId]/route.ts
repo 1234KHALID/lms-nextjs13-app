@@ -1,6 +1,7 @@
-import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
+
+import { db } from "@/lib/db";
 
 export async function DELETE(
   req: Request,
@@ -8,6 +9,7 @@ export async function DELETE(
 ) {
   try {
     const { userId } = auth();
+
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
@@ -32,7 +34,7 @@ export async function DELETE(
 
     return NextResponse.json(attachment);
   } catch (error) {
-    console.log(error);
+    console.log("ATTACHMENT_ID", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
